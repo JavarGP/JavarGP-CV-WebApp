@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="icon" type="image/x-icon" href="../pictures/Transparent-Logo QCE.png">
+    <title>Porfile CV</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  .body {
+    padding: 0;
+  }
+
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 35rem;
+    overflow: hidden;
+    object-fit: cover;
+  }
+  
+  .test {
+      width: 33%;
+      position: absolute;
+      backdrop-filter: blur(25px);
+      color: #f2f2f2;
+      display: flex;
+      height: 100%;
+      text-align: justify;
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      padding: 4rem;
+      z-index: 1;
+  } 
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    width: auto;
+    height: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    background-color: #2222227d;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 4;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+  .cv {
+    height: calc(100% * 1/3);
+    box-sizing: border-box;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile_img {
+    display: flex;
+    color: teal;
+  }
+
+  /*.profile_img div:first-child {
+    background-image: url(/pictures/3b0b2a_c3ae8c7d2aee4deaa79f74c1827eff46~mv2.webp);
+    object-fit: cover;
+    background-position: top;
+    padding: 1rem;
+    background-repeat: no-repeat;
+    aspect-ratio: 5/4;
+  }*/
+  
+  .profile_description {
+    padding: 0 4rem 3rem;
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  } 
+
+  .profile_description h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+  }
+
+
+  .profile-info {
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    /*padding:1rem;*/
+  }
+
+  .content {
+    /*background: rgba(128, 128, 128, 0.5);*/
+    color: teal;
+    /*box-shadow: 0px 3px 8px 2px rgba(0, 0, 0, 0.2);*/
+    /*display: grid;
+    grid-template-rows: 1fr 2fr;*/
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .content_info {
+    display: flex;
+    flex-direction: row;
+    /*background: teal;*/
+    color: teal;
+    margin: 1rem 3rem 1rem 0;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+
+  .content_info h1 {
+    border-bottom: lightgrey 3px solid;
+  }
+
+  .content_description {
+    /*padding: 3rem;*/
+  }
+
+  /* billboard section*/
+.introduction {
+  position: relative;
+  background-image: url(../public/pictures/IMG_1900.jpg);
+  width: 100%;
+  height: calc(100vw*.5);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-attachment: fixed;
+  background-position: right;
+}
+
+.heading {
+  position: absolute;
+  display: inline;
+  width: 100%;
+  height: fit-content;
+  justify-content:end;
+  z-index: 10;
+  left: 80%;
+  color: white;
+}
+
+.billboard div {
+  margin-top: 3rem;
+}
+
+.holder h1 {
+  font-size:2em;
+  font-weight: 100;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.holder div {
+  padding: 1rem 0;
+  font-size: medium;
+  font-weight: lighter;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#myName {
+  font-size: 6rem;
+  font-weight: lighter;
+  font-family: 'Times New Roman', Times, serif;
+  text-decoration: none;
+}
+
+.collapse-menu {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-drop-down {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  color: white;
+  overflow: hidden; 
+  font-size: larger;
+  padding: 1.5rem 4rem;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+}
+
+
+.menu-icon {
+ display: none;
+}
+
+
+
+.menu-drop-down a {
+  padding: 1rem 1.75rem; 
+}
+
+
+
+.nav_intro {
+  font-size: 1em;
+ 
+}
+
+.nav_intro span:hover{
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  text-decoration-color: chartreuse;
+  cursor: pointer;
+  
+}
+
+.title_intro {
+  font-size: x-large
+}
+
+.title div {
+  display: inline;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+}
+
+.title img{
+  background: white;
+  border-radius: 50%;
+}
+
+.deck-info{
+  display: flex;
+  justify-content: center; 
+  color: #fff;
+  font-size: 3rem;
+  flex-direction: column;
+  font-family: 'Times New Roman', Times, serif; 
+  margin: 6rem;
+}
+
+.deck-info h5 {
+  letter-spacing: 5px;
+}
+
+.languages ul li img {
+  display: inline;
+  width: 4em;
+  padding: 1em ;
+  margin: 0 2em;
+}
+
+.languages ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1em 0;
+  border-bottom: 2px solid lightgrey ;
+}
+.container2 {
+  height: fit-content;
+  width: 100%;
+  background-color: #ddd;
+}
+
+.skills {
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
+.html {
+  width: 90%;
+  background-image: linear-gradient(135deg, rgba(255, 150, 80, 0.854), rgba(254, 152, 0, 0.5)),
+  url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 250 250'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='13' numOctaves='10' stitchTiles='stitch' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  transition: width 2s;
+}
+
+.progress {
+  position: absolute;
+  border-radius: 50%;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  width: -webkit-fill-available;
+  list-style: none;
+  padding: 0;
+
+}
+.languages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 3em 0 0 0 ;
+}
+
+#jobDescritption {
+  padding: -1rem;
+}
+
+#education {
+  /*padding: 3rem;*/
+}
+
+.section2 {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.box {
+  box-sizing: border-box;
+  padding: 2rem;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+  gap: 10px;
+  background-repeat: no-repeat;
+  font-size: 1em;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+/*.box button {
+  background: transparent;
+  border: #fff solid 2px;
+  border-radius: 8px;
+  padding: 0 2em;
+}*/
+
+#box1 {
+  background-image: linear-gradient(135deg, chartreuse, rgba(128, 255, 0, 0.61)),
+  url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='100'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='13' numOctaves='10' stitchTiles='stitch' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+#box2 {
+  background-image: linear-gradient(15deg, rgba(124, 104, 238, 0.37), mediumslateblue),
+  url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox=' 100'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='13' numOctaves='10' stitchTiles='stitch' /%3E%3C/filter%3E%3Crect width='500%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+#box3 {
+  background-image: linear-gradient(287deg, grey, rgba(128, 128, 128, 0.5)),
+  url("data:image/svg+xml, %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='100'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='13' numOctaves='10' stitchTiles='stitch' /%3E%3C/filter%3E%3Crect width='200%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+button {
+  background: transparent;
+  border: #fff solid 2px;
+  border-radius: 8px;
+  padding: 0 2em;
+  color: #fff;
+}
+
+</style>
+    
+</head>
+<body>
+  <section class="introduction">
+    <div class="heading">
+      <div class="collapse-menu">
+          <div class="menu-icon" onclick="showmenu()"><span class="material-symbols-outlined">
+            menu
+            </span></div>
+      </div>
+    </div>
+        
+    <div class="menu-drop-down" id="dropdown_menu">
+        <div class="title">
+          <a href="/"><img src="../public/pictures/Transparent-Logo QCE.png" alt="" id="logo_h" style="width: 3rem;"></a>
+        </div>
+
+        <div class="nav_intro">
+          <span><a href="#about">About</a></span>
+          <span><a href="#projects">Projects</a></span>
+          <span><a href="https://github.com/JavarGP"><i class="bi bi-github"></i></a></span>
+          <span><a href="https://www.linkedin.com/in/javar-place-0b6046180/"><i class="bi bi-linkedin"></i></a></span>
+          <a href=""><span class="material-symbols-outlined">contact_page</span></a>
+            
+            
+        </div>
+       
+    </div>
+
+    <div class="billboard">
+      <div class="holder deck-info">                
+        <div>
+          <h1 class="title_intro">Looking for an Ingenious Developer?</h1>
+          <h1 class="title_intro" id="myName">Javar Place</h1>            
+        </div>
+        <h5>Quality Creativity Endeavour</h5>
+        <!-- <button><span><a href="">CV/Resume</a></span></button> -->
+      </div>
+    </div>      
+  </section>
+
+  <section class="section2">
+    <div class="box" id="box1">
+      <p>
+        With over a decade of experince as a barber I've honed my craft.
+        An important part of the service is, always add value to the experince.
+        As a barber you're not only providing service, you're are the advisor.
+        That experince can change a person entire outlook.
+      </p>
+      <button>
+        <a href="https://g.co/kgs/avvMsZJ">review</a>
+      </button>
+    </div>
+    <div class="box" id="box2">
+      <p>
+        Managing a small landscaping firm was a huge learning experince. 
+        Coordination between the business owner, clients and employees. Ususally about four client every day would need to be complete
+        I would elect to travel to the further client first in order to perfom the most effeicnt route.   
+      </p>
+    </div>
+    <div class="box" id="box3">
+      <p>
+        Programming will be an essential skill within the next decade. Everything is intergrated online. I'm want to be a part or the mailstrom 
+        of change. The advantage of a self-taught developer means constanly staying ahead of the curb. 
+      </p>
+      <!-- <span class="material-symbols-outlined" st>
+        timeline
+      </span> -->
+    </div>
+  </section>
+
+  <section class="cv">
+    <div class="profile">
+      <div class="profile_img">
+        <div class="profile_description">
+          <h1 id="about">About</h1>
+          <p>l am a passionate self-taught programmer. I have over half a decade of experince in coding.
+            Initialy I had no apptitude for anything computer related. Through a lot of perseverance 
+            I was able to understand the world of computers.
+            Originally I hail from the sunny island of Bermuda. I eventually settled in the Netherlands and 
+            I wanted to use my experince to build webapps and programs</p>
+          <div class="languages">
+            <h1 id="projects">Projects</h1>
+            <ul>
+                <li id="html"><a href="https://github.com/JavarGP/profilesite" title="html public/icons"><img src="../public/pictures/icons/html.png" alt=""></a>  
+                 
+                </li>
+               
+               
+                <li id="css"><a href="https://javargp.github.io/profilesite/" title="css public/icons"><img src="../public/pictures/icons/css-3.png" alt=""></a></li>
+                <li id="javascript"><a href="" title="javascript public/icons"><img src="../public/pictures/icons/js.png" alt=""></a></li>
+                <li id="amazon"><a href="https://master.dgott00qeti07.amplifyapp.com/" title="amazon public/icons"><img src="../public/pictures/icons/social.png" alt=""></a></li>
+                <li id="python"><a href="https://github.com/JavarGP/yellopages_webscraper/blob/main/app.py" title="python public/icons"><img src="../public/pictures/icons/python.png" alt=""></a></li>
+                <li id="photoshop"><a href="" title="graphic design public/icons"><img src="../public/pictures/icons/photoshop.png"></a></li>
+            </ul>
+            <div >
+              <button onclick="hideFunc()" style="background: teal;">testing</button>
+              <div id="hiddenTest" class="moreInfo">
+                   <div class="language" id="html-project">
+                    <div class="content">
+                      <div class="content_info">
+                        <h1>Education</h1>
+                        <span class="material-symbols-outlined">
+                        school
+                        </span>
+                      </div>
+                      <div class="content_description" id="education">
+                       Dutch (intermediate)<br>
+                       AWS (certification avaliable upon request)<br>
+                       Diploma of applied science <br>
+                       IB certificate
+                      </div>
+                    </div>
+                   </div>
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+   
+      <div class="profile-info">
+        <div class="content">
+          <!-- <div class="content_info">
+
+          </div> -->
+          <div class="content_description" >
+            <div class="container" id="jobDescription">
+
+              <!-- Full-width images with number text -->
+              <div class="mySlides">
+                <div class="numbertext">1 / 3</div>
+                  <img src="../public/pictures/pexels-thgusstavo-santana-2809652.jpg" style="width:100%">
+                  <div class="test">
+                    <h1>Barber</h1>
+                    <h5>Mos Fox</h5>
+                    <h2>2019 - Present</h2>
+                    <p id="tile"> I deeply fulfilling to  be a barber. Maintaining the client is as crutial as getting new clients.
+                      Maintaining and attracting new client is a goal I accomplish by:
+                        <br>- Speaking in a friendly manner
+                        <br>- Remaining Hygenic 
+                        <br>- Precise haircut
+                       <br>My goal is not to just porvide a good haircut, its to provide a great experience. 
+                    </p>
+                    <button type="button" style="width: fit-content;" onclick='document.getElementById("tile").innerHTML = "Communication, Flexibility "'>Skills</button>
+                  </div> 
+              </div>
+            
+              <div class="mySlides">
+                <div class="numbertext">2 / 3</div>
+                  <img src="../public/pictures/pexels-asad-photo-maldives-1449767.jpg" style="width:100%">
+                  <div class="test">
+                    <h1>Landscaper</h1>
+                    <h5>Four Seasons Landscaping</h5>
+                    <h2>Manager <br>2014 -2016</h2>
+                    <p id="tile2">This was very rewarding time because i had to speak with the client an report to my boss as well as manage my colleagues
+                      I would surveying a property and deteremine the duration. then prioritize the work load according to number of employees and number of jobs for that day. 
+                    </p>
+                    <button type="button" style="width: fit-content;"  onclick='document.getElementById("tile2").innerHTML = "Punctuality, Prioritization"'>Skills</button>
+                  </div>
+              </div>
+            
+              <div class="mySlides">
+                <div class="numbertext">3 / 3</div>
+                  <img src="../public/pictures/pexels-ron-lach-8817846.jpg" style="width:100%"> <h1>My First Web Page</h1>
+                  <div class="test">
+                    <h1>Capenter </h1>
+                    <h5>Self-employed<br></h5>
+                    <h2>2007 - present</h2>
+                    <p id="tile4"> Its very satisfying being a self employed. In have carpentry and installion communication is vital.
+                      while building a shelving unit we careful and methotically set up the wokring area and funiture. it wasnt uncommon to work late
+                      to insure every little detail was perfect 
+                       </p>
+                    <button type="button" style="width: fit-content;" onclick='document.getElementById("tile4").innerHTML = "Working independently, Managing expensive equipment"'>Skills</button>
+                  </div>
+              </div>
+            
+              <!-- Next and previous buttons -->
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            
+              <!-- Image text -->
+              <div class="caption-container">
+                <p id="caption"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-body-secondary">© 2023 Company, Inc</span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="text-body-secondary" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </footer>
+  </div>
+
+<script>
+  function hideFunc() {
+    let extra = document.getElementById("hiddenTest");
+    if (extra.style.visibility === 'hidden') {
+      extra.style.visibility = 'visible';
+    } else {
+      extra.style.visibility = 'hidden';
+    }
+  }
+  
+
+
+  let slideIndex = 1;
+  showSlides(slideIndex);
+  
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("demo");
+    let captionText = document.getElementById("caption");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "flex";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+</script>
+</body> 
+</html>
